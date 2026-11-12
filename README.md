@@ -1,2 +1,2 @@
 # YTshorts-Blocker
-A userscript that blocks YouTube Shorts.
+An userscript that blocks YouTube Shorts.
