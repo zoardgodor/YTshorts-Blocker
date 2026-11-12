@@ -16,11 +16,19 @@
 function hidebutton() {
     document.querySelectorAll("ytd-guide-entry-renderer").forEach(element => {const title=element.querySelector(".title");if (title?.textContent.trim()==="Shorts") {element.style.display="none";}});}
 
-function indit() {hidebutton();const observer=new MutationObserver(()=>{
-    hidebutton();
-});
+function hideshorts() {
+    console.log("Shorts blocker:", location.pathname);
+    if (location.pathname==="/") {document.querySelectorAll('ytd-rich-section-renderer:has(a[href^="/shorts/"]), ytd-reel-shelf-renderer'
+    ).forEach(element=>element.remove());}
+// searchresults shorts
+    if (location.pathname==="/results"){document.querySelectorAll("ytm-shorts-lockup-view-model-v2").forEach(element   =>{const container=element.closest("grid-shelf-view-model");if(container) container.remove();});}}
+// start
+function asd() {hidebutton();hideshorts();let observer=new MutationObserver(()=>{
+    hidebutton();hideshorts();});
+
 observer.observe(document.documentElement, {childList:true, subtree:true});}
 
-if (document.documentElement) {indit();}
-else {document.addEventListener("DOMContentLoaded", indit, {once:true});}
+document.addEventListener("yt-navigate-finish",()   =>{hidebutton();hideshorts();});
 
+if (document.documentElement) {asd();}
+else {document.addEventListener("DOMContentLoaded", asd, {once:true});}
