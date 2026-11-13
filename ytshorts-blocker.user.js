@@ -22,13 +22,12 @@ function hideshorts() {
     ).forEach(element=>element.remove());}
 // searchresults shorts
     if (location.pathname==="/results"){document.querySelectorAll("ytm-shorts-lockup-view-model-v2").forEach(element   =>{const container=element.closest("grid-shelf-view-model");if(container) container.remove();});}}
-// start
-function asd() {hidebutton();hideshorts();let observer=new MutationObserver(()=>{
+function start() {hidebutton();hideshorts();let observer=new MutationObserver(()=>{
     hidebutton();hideshorts();});
 
 observer.observe(document.documentElement, {childList:true, subtree:true});}
 
 document.addEventListener("yt-navigate-finish",()   =>{hidebutton();hideshorts();});
 
-if (document.documentElement) {asd();}
-else {document.addEventListener("DOMContentLoaded", asd, {once:true});}
+if (document.documentElement) {start();}
+else {document.addEventListener("DOMContentLoaded", start, {once:true});}
