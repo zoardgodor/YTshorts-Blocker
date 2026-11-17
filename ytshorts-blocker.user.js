@@ -2,7 +2,7 @@
 // @name        YTshorts-Blocker
 // @namespace   https://github.com/zoardgodor/YTshorts-Blocker
 // @icon        https://www.youtube.com/s/desktop/cb518cf3/img/favicon.ico
-// @version     1.0.0
+// @version     1.0.1
 //
 // @match       https://www.youtube.com/*
 // @grant       none
@@ -14,8 +14,8 @@
 
 
 function hidebutton() {
-    document.querySelectorAll("ytd-guide-entry-renderer").forEach(element => {const title=element.querySelector(".title");if (title?.textContent.trim()==="Shorts") {element.style.display="none";}});}
-
+    document.querySelectorAll("ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer").forEach(element => {const title=element.querySelector(".title, [aria-label='Shorts'], [title='Shorts']");if (title?.textContent.trim()==="Shorts" || title?.getAttribute("aria-label")==="Shorts" || title?.getAttribute("title")==="Shorts") {element.style.display="none";}});}
+    
 function hideshorts() {
     console.log("Shorts blocker:", location.pathname);
     if (location.pathname==="/") {document.querySelectorAll('ytd-rich-section-renderer:has(a[href^="/shorts/"]), ytd-reel-shelf-renderer'
