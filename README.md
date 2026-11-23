@@ -11,4 +11,7 @@ Open this webpage: https://raw.githubusercontent.com/zoardgodor/YTshorts-Blocker
 If everything goes as expected, Violentmonkey will offer to install it. After installation, you will also need to configure the extension to allow user scripts.
 After this, you will see that the Shorts do not appear on the page.
 
+## GreasyFork:
+https://greasyfork.org/en/scripts/606843-ytshorts-blocker
+
 (The userscript only works on youtube.com.)
